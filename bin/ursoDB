@@ -1,0 +1,58 @@
+#!/bin/bash
+
+set -e # faz com que o script pare se ocorrer algum erro
+
+# localização do ficheiro de configuração
+CONFIG_FILE="etc/configure.json"
+
+if [ ! -f "$CONFIG_FILE" ]; then
+  echo "Configuration file not found at $CONFIG_FILE!"
+  exit 1
+fi
+
+# Parse configuration
+
+start_ursoDB() {
+  echo "Starting ursoDB..."
+  forever start "src/RP/rp.js"
+
+  jq -c '.DNs[]' "$CONFIG_FILE" | while read -r DN; do
+    DN_ID=$(echo "$DN" | jq -r '.name' | sed 's/DN//')
+    echo "Starting ${DN_ID}..."
+
+    echo "$DN" | jq -c '.servers[]' | while read -r SERVER; do
+      SERVER_ID=$(echo "$SERVER" | jq -r '.id')
+      SERVER_HOST=$(echo "$SERVER" | jq -r '.host')
+      SERVER_PORT=$(echo "$SERVER" | jq -r '.port')
+      IP=$SERVER_HOST PORT=$SERVER_PORT DN_ID=$DN_ID SERVER_ID=$SERVER_ID forever start "src/DNs/dn.js"
+      #fi
+    done
+  done
+}
+
+stop_ursoDB() {
+  echo "Stopping ursoDB..."
+  forever stopall
+}
+
+restart_ursoDB() {
+  echo "Restarting ursoDB..."
+  stop_ursoDB
+  start_ursoDB
+}
+
+case "$1" in
+  start)
+    start_ursoDB
+    ;;
+  stop)
+    stop_ursoDB
+    ;;
+  restart)
+    restart_ursoDB
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|restart}"
+    exit 1
+    ;;
+esac
