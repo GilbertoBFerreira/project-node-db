@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "90fa1eba-ad30-4030-a24e-52a305d34df0",
+		"name": "ProjectNodeDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36851991"
+	},
+	"item": [
+		{
+			"name": "http://localhost:4000/db/c",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"testKey\",\"value\":\"testValue\",\"hash\":\"123\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/db/c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"db",
+						"c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/db/r?key=rr",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/db/r?key=rr",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"db",
+						"r"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "rr"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/db/c",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"testKey\",\"value\":\"testValue\",\"hash\":\"123\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/db/c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"db",
+						"c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
