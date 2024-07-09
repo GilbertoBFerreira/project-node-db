@@ -17,13 +17,13 @@
 - `npm install -g forever`
 
 ### Install jq in distro local machine  :heavy_exclamation_mark:
-#### Open your sources file in a text editor:
+Open your sources file in a text editor:
 - `sudo nano /etc/apt/sources.list`
-#### Then re-index apt-get so that it can find jq
+Then re-index apt-get so that it can find jq
 - `deb http://us.archive.ubuntu.com/ubuntu vivid main universe`
-####  Then re-index apt-get so that it can find jq
+Then re-index apt-get so that it can find jq
 - `sudo apt-get update`
-#### Then do the normal install and you should be the proud new user of jq :heavy_exclamation_mark:
+Then do the normal install and you should be the proud new user of jq
 - `sudo apt-get install jq`
 
 ## Creating Configuration Files and Scripts (already exist inside projet) :no_entry_sign:
