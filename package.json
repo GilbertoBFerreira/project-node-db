@@ -1,0 +1,18 @@
+{
+  "name": "project-node-db",
+  "version": "1.0.0",
+  "description": "## Setting Up the Node.js Environment ### Initialize a new Node.js project and install the required dependencies. - `npm init -y` - `npm install express winston axios forever`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "forever": "^4.0.3",
+    "winston": "^3.13.0"
+  }
+}

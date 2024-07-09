@@ -6,6 +6,9 @@
 - `npm init -y`
 - `npm install express winston axios forever`
 
+### for install dependencies just run
+- `npm install`
+
 ### Make the script executable:
 - `chmod +x ursoDB` 
 
